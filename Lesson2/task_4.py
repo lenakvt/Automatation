@@ -5,7 +5,8 @@ def Fizz_Buzz(n):
         print ("Fizz")
     elif (n%5==0):
         print ("Bazz")
-        
+    else:
+        print(n)
 number = input("Введите число: ")
 number= int(number)
 
