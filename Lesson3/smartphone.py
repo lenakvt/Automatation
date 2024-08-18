@@ -5,4 +5,4 @@ class Smartphone:
      self.number=number
      
     def infoPhone(self):
-      print(self.marka + " - "+ self.model+"." + self.number)
+      print(f'{self.marka} - {self.model}. {self.number}')
