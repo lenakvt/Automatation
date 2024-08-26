@@ -35,7 +35,7 @@ def test_to_list(input, delimetr, result):
 
 # Проверки Contains
 @pytest.mark.parametrize("input, value, result", [("Container", "n", True), ("Container", "z", False),
-    ("None", "None", True), ("1234", "2", True), ("", "", True), (" ", "", True)])
+("None", "None", True), ("1234", "2", True), ("", "", True), (" ", "", True)])
 def test_contains_(input, value, result):
     assert utils.contains(input, value) == result
 
