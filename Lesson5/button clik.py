@@ -6,11 +6,8 @@ browser = webdriver.Chrome()
 browser.get('https://the-internet.herokuapp.com/add_remove_elements/')
 
 add_element = browser.find_element(By.TAG_NAME, 'button')
-add_element.click()
-add_element.click()
-add_element.click()
-add_element.click()
-add_element.click()
+for i in range(5):
+    add_element.click()
 
 list = browser.find_elements(By.CLASS_NAME, 'added-manually')
 
