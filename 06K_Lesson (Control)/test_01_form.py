@@ -45,4 +45,5 @@ assert alert_danger.get_attribute(
 assert len(driver.find_elements(By.CLASS_NAME, "alert-success")
            ) == 9, "Количество полей, подсвеченных зеленым отличается"
 
+# Закрыть сайт
 driver.quit()
