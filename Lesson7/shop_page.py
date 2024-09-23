@@ -6,19 +6,19 @@ class ShopPage:
     def __init__(self, seleniumDriver):
         self.driver = seleniumDriver
 
-    def getShop(self):
+    def get_shop(self):
         self.driver.get("https://www.saucedemo.com/")
 
-    def authorizeUser(self, username, password):
+    def authorize_user(self, username, password):
         self.driver.find_element(
             By.ID, 'user-name').send_keys(username)
         self.driver.find_element(
             By.ID, 'password').send_keys(password)
 
-    def loginClick(self):
+    def login_click(self):
         self.driver.find_element(By.ID, "login-button").click()
 
-    def addToCart(self):
+    def add_to_cart(self):
         self.driver.find_element(
             By.ID, "add-to-cart-sauce-labs-backpack").click()
         self.driver.find_element(
@@ -26,13 +26,13 @@ class ShopPage:
         self.driver.find_element(
             By.ID, "add-to-cart-sauce-labs-onesie").click()
 
-    def cartClick(self):
+    def cart_click(self):
         self.driver.find_element(By.ID, "shopping_cart_container").click()
 
-    def checkoutClick(self):
+    def checkout_click(self):
         self.driver.find_element(By.ID, "checkout").click()
 
-    def fillData(self, firstName, lastName, postalCode):
+    def fill_data(self, firstName, lastName, postalCode):
         self.driver.find_element(
             By.ID, "first-name").send_keys(firstName)
         self.driver.find_element(
@@ -40,9 +40,9 @@ class ShopPage:
         self.driver.find_element(
             By.ID, "postal-code").send_keys(postalCode)
 
-    def continueClick(self):
+    def continue_click(self):
         self.driver.find_element(By.ID, "continue").click()
 
-    def readTotalCost(self):
+    def read_total_cost(self):
         return self.driver.find_element(By.CSS_SELECTOR,
                                         "div.summary_total_label").text

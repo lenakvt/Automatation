@@ -9,20 +9,17 @@ def test_user_form():
     form = FormPage(chromDriver)
 
     # Зайти на сайт
-    form.getForm()
+    form.get_form()
 
     # Заполнить форму значениями
-    form.setupForm()
+    form.setup_form()
 
     # Кликнуть на кнопку Submit
     form.submit()
 
     # Проверить assert, что поле zip code подсвечено красным цветом, и что
     # поля подсвечены зеленым цветом
-    assert form.getZipCodeId() == "zip-code", "Поле не подсвечено красным"
-    assert form.checkSucsessFields() is True, "Поля не подсвечено зеленым"
-    
+    assert form.get_zipcode_id() == "zip-code", "Поле не подсвечено красным"
+    assert form.check_sucsess_fields() is True, "Поля не подсвечено зеленым"
+
     chromDriver.quit()
-
-
-test_user_form()

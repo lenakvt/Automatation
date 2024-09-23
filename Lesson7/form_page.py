@@ -10,24 +10,24 @@ class FormPage:
     def __init__(self, seleniumDriver):
         self.driver = seleniumDriver
 
-    def getForm(self):
+    def get_form(self):
         self.driver.get(
             "https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
-    def setField(self, selector, value):
+    def set_field(self, selector, value):
         self.driver.find_element(
             By.CSS_SELECTOR, selector).send_keys(value)
 
-    def setupForm(self):
-        self.setField("[name=first-name]", "Иван")
-        self.setField("[name=last-name]", "Петров")
-        self.setField("[name=address]", "Ленина, 55-3")
-        self.setField("[name=e-mail]", "test@skypro.com")
-        self.setField("[name=phone]", "+7985899998787")
-        self.setField("[name=city]", "Москва")
-        self.setField("[name=country]", "Россия")
-        self.setField("[name=job-position]", "QA")
-        self.setField("[name=company]", "SkyPro")
+    def setup_form(self):
+        self.set_field("[name=first-name]", "Иван")
+        self.set_field("[name=last-name]", "Петров")
+        self.set_field("[name=address]", "Ленина, 55-3")
+        self.set_field("[name=e-mail]", "test@skypro.com")
+        self.set_field("[name=phone]", "+7985899998787")
+        self.set_field("[name=city]", "Москва")
+        self.set_field("[name=country]", "Россия")
+        self.set_field("[name=job-position]", "QA")
+        self.set_field("[name=company]", "SkyPro")
 
     def submit(self):
         selector = "button.btn.btn-outline-primary.mt-3"
@@ -35,12 +35,12 @@ class FormPage:
             EC.element_to_be_clickable((By.CSS_SELECTOR, selector)))
         button_submit.click()
 
-    def getZipCodeId(self):
+    def get_zipcode_id(self):
         zipCodeElement = self.driver.find_element(
             By.CSS_SELECTOR, "#zip-code.alert.py-2.alert-danger")
         return zipCodeElement.get_attribute("id")
 
-    def checkSucsessFields(self):
+    def check_sucsess_fields(self):
         count = 0
         for name in self.fields:
             element = self.driver.find_element(

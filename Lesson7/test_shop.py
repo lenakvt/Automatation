@@ -8,34 +8,31 @@ def test_shop():
     shop = ShopPage(driver)
 
     # Перейти на сайт
-    shop.getShop()
+    shop.get_shop()
 
     # Авторизоваться как пользователь standard_user
-    shop.authorizeUser("standard_user", "secret_sauce")
+    shop.authorize_user("standard_user", "secret_sauce")
 
     # Нажать на кнопку login
-    shop.loginClick()
+    shop.login_click()
 
     # Добавить товары в корзину
-    shop.addToCart()
+    shop.add_to_cart()
 
     # Перейти в корзину
-    shop.cartClick()
+    shop.cart_click()
 
     # Нажать на кнопку Checkout
-    shop.checkoutClick()
+    shop.checkout_click()
 
     # Заполнить форму своими данными
-    shop.fillData("Elena", "KIlovataya", "194223")
+    shop.fill_data("Elena", "KIlovataya", "194223")
 
     # Нажать кнопку Continue
-    shop.continueClick()
+    shop.continue_click()
 
     # Прочитайте со страницы итоговую стоимость (Total)
-    assert shop.readTotalCost() == "Total: $58.29"
+    assert shop.read_total_cost() == "Total: $58.29"
 
     # Закрыть сайт
     driver.quit()
-
-
-test_shop()
