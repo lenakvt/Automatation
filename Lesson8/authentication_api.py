@@ -14,5 +14,3 @@ class AuthenticationApi:
         }
         resp = requests.post(self.url + '/auth/login', json=creds)
         return resp.json()["userToken"]
-
-    

@@ -7,6 +7,7 @@ token = ""
 company_id = ""
 
 
+# Создание новой компании
 def test_create_company():
     authApi = AuthenticationApi(baseUrl)
     global token
@@ -20,6 +21,7 @@ def test_create_company():
     assert company["id"] == company_id
 
 
+# Создание нового сотрудника
 def test_create_employee():
     employeeApi = EmployeeApi(baseUrl)
     employee = {
@@ -35,6 +37,8 @@ def test_create_employee():
     }
 
     employee_id = employeeApi.create_employee(token, employee)
+
+    # Получение данных о сотруднике
     new_employee = employeeApi.get_employee(employee_id)
 
     assert new_employee["firstName"] == employee["firstName"]
@@ -48,6 +52,7 @@ def test_create_employee():
     assert new_employee["isActive"] == employee["isActive"]
 
 
+# Изменение данных сотрудника
 def test_update_employee():
     employeeApi = EmployeeApi(baseUrl)
     employee = {
