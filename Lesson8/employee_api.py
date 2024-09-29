@@ -20,6 +20,7 @@ class EmployeeApi:
                              json=employee, headers=my_headers)
         return resp.json()["id"]
 
+    # Изменить данные сотрудника
     def update_employee(self, token, id, employee):
         my_headers = {}
         my_headers["x-client-token"] = token

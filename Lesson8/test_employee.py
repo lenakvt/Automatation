@@ -37,8 +37,26 @@ def test_create_employee():
     }
 
     employee_id = employeeApi.create_employee(token, employee)
+    assert type(employee_id) is int
 
-    # Получение данных о сотруднике
+
+# Получение данных сотрудника
+def test_get_employee():
+    employeeApi = EmployeeApi(baseUrl)
+    employee = {
+        "firstName": "Ivan",
+        "lastName": "Ivanov",
+        "middleName": "Petrovich",
+        "companyId": company_id,
+        "email": "ivan.ivanov@gmail.com",
+        "url": "none",
+        "phone": "+1333444555",
+        "birthdate": "2000-09-28",
+        "isActive": True
+    }
+
+    employee_id = employeeApi.create_employee(token, employee)
+
     new_employee = employeeApi.get_employee(employee_id)
 
     assert new_employee["firstName"] == employee["firstName"]
