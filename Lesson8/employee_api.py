@@ -18,7 +18,11 @@ class EmployeeApi:
         my_headers["x-client-token"] = token
         resp = requests.post(self.url + '/employee',
                              json=employee, headers=my_headers)
-        return resp.json()["id"]
+        
+        if 'id' in resp.json().keys():
+            return resp.json()["id"] 
+        return resp.json()
+        
 
     # Изменить данные сотрудника
     def update_employee(self, token, id, employee):
