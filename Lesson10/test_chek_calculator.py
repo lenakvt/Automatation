@@ -5,6 +5,7 @@ from allure_commons.types import Severity
 
 delay = "45"
 
+
 @allure.title("Проверка калькулятора")
 @allure.description("Сложение цифр")
 @allure.feature("Read")
