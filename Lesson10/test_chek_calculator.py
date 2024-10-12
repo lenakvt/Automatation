@@ -3,8 +3,7 @@ from calc_page import CalcPage
 import allure
 from allure_commons.types import Severity
 
-delay = "1"  # 45
-
+delay = "45"
 
 @allure.title("Проверка калькулятора")
 @allure.description("Сложение цифр")
