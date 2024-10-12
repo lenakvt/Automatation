@@ -12,6 +12,13 @@ pytest
 ```
 pytest --alluredir=./Lesson10/allure_report
 ```
+
+### Просмотр тестов
+```
+allure serve .\allure_report\
+```
+***предполагается что allur запускается из папки с тестами, иначе нуно указать полный путь до пааки с отчетами***
+
 ### Установка сервера allure на windows
 ```
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
