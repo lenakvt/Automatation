@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+import allure
 
 
 class FormPage:
@@ -10,14 +11,17 @@ class FormPage:
     def __init__(self, seleniumDriver):
         self.driver = seleniumDriver
 
+    @allure.step("получение сайта по url")
     def get_form(self):
         self.driver.get(
             "https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
-    def set_field(self, selector, value):
+    @allure.step("установка значения в поле")
+    def set_field(self, selector: str, value: str):
         self.driver.find_element(
             By.CSS_SELECTOR, selector).send_keys(value)
-
+        
+    @allure.step("установка значений формы")
     def setup_form(self):
         self.set_field("[name=first-name]", "Иван")
         self.set_field("[name=last-name]", "Петров")
@@ -29,18 +33,21 @@ class FormPage:
         self.set_field("[name=job-position]", "QA")
         self.set_field("[name=company]", "SkyPro")
 
+    @allure.step("клик по кнопке submit")
     def submit(self):
         selector = "button.btn.btn-outline-primary.mt-3"
         button_submit = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, selector)))
         button_submit.click()
 
-    def get_zipcode_id(self):
+    @allure.step("получить значачение из поля zip code")
+    def get_zipcode_id(self) -> str:
         zipCodeElement = self.driver.find_element(
             By.CSS_SELECTOR, "#zip-code.alert.py-2.alert-danger")
         return zipCodeElement.get_attribute("id")
 
-    def check_sucsess_fields(self):
+    @allure.step("получить значачение из поля zip code")
+    def check_sucsess_fields(self) -> bool:
         count = 0
         for name in self.fields:
             element = self.driver.find_element(
